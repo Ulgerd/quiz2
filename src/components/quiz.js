@@ -22,12 +22,14 @@ class Quiz extends Component {
     }
 
     if (Array.isArray(correctAnswers)) {
-      correctAnswers.sort();
-      userAnswers.sort();
+      let correctAnswersForComparison = [...correctAnswers];
+      let userAnswersForComparison = [...userAnswers];
+      correctAnswersForComparison.sort();
+      userAnswersForComparison.sort();
       return (
-        correctAnswers.length===userAnswers.length &&
-        correctAnswers.every((elem, i) => {
-          return elem === userAnswers[i]
+        correctAnswersForComparison.length===userAnswersForComparison.length &&
+        correctAnswersForComparison.every((elem, i) => {
+          return elem === userAnswersForComparison[i]
         })
       )
     }
